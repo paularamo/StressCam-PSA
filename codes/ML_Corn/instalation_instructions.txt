@@ -1,0 +1,24 @@
+Follow these instructions to install dependencies: 
+
+sudo pip3 install numpy --upgrade
+sudo pip3 install scikit-learn==0.22.2.post1
+sudo pip3 uninstall scikit-image
+sudo pip3 install scikit-image==0.16.2
+sudo apt-get update
+sudo apt install python3-opencv
+sudo apt install python3-pil 
+
+the SVM model is svm_tuned_modelFINAL.sav
+
+takeImageSVM_corn.py integrates the embedded SVM code and the Hologram Code.
+ 
+config.json contains the device parameters. 
+{
+"Hologram ID":	"Device_Key_From_Hologram",
+"Camera ID":	"Rasp-ID###",
+"State": "NC",
+"Treatment": "CC",
+"Make pred on testset" : true
+} 
+
+testImageLabels.json contains test labels for the images in testConrn folder
