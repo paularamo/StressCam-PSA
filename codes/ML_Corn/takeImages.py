@@ -35,7 +35,9 @@ devicekey = device_params['Hologram ID']          #
 cameraID = device_params['Camera ID']             #
 crop = device_params['Crop']                      #
 treatment = device_params['Treatment']            #
-testML = device_params['test ML']                 #
+testML = device_params['test ML']
+mode = device_params['mode']
+time_zone = device_params['timezone']
 ###################################################
 
 from Hologram.HologramCloud import HologramCloud
@@ -83,9 +85,9 @@ if testML=="true":
         randomImage = random.randrange(len(testLabels)) #pick a random test image
         actual_label = np.argmax(testLabels[randomImage])#one-hot encoded
         im = testImages[randomImage]
-else:#read image just captured by camera  
+else:#read image just captured by camera
     im = cv2.imread(file)
-###SVM model for Corn, TFLite model for soybeans 
+###SVM model for Corn, TFLite model for soybeans
 if (crop == "corn"):
     im = Image.fromarray(im,"RGB")
     print("Resizing image...")
@@ -139,10 +141,10 @@ if (crop == "corn"):
 else: #DL model for soybeans
     #TFlite Dependancies: don't import unless in Soybeans
     from tensorflow import lite as tflite
-    import tensorflow as tf 
+    import tensorflow as tf
     #im = Image.fromarray(im,"RGB")
     im_final = cv2.resize(im,(224,224))#Model was trained on 224x224 images
-    #Preprocess Image for Mobilenet_V2 
+    #Preprocess Image for Mobilenet_V2
     #print(im_final)
     im_final=tf.keras.applications.mobilenet_v2.preprocess_input(im_final)
     # Load TFLite model and allocate tensors.
@@ -173,7 +175,7 @@ else: #DL model for soybeans
         print("Actual WS: ", actual_label)
     except NameError:
         pass
-if (crop =="corn"): 
+if (crop =="corn"):
     if testML=="true":
         data = {
                     "DEV_ID": devicekey,
@@ -184,6 +186,8 @@ if (crop =="corn"):
                     "SD_free":disk_free,
                     "CROP": crop,
                     "TREATMENT": treatment,
+                    "MODE": mode,
+                    "TIME_ZONE": time_zone,
                     "FILE":street[randomImage],
                     "P_WS_1": result[0][0],
                     "P_WS_2": result[0][1],
@@ -201,6 +205,8 @@ if (crop =="corn"):
                     "SD_free":disk_free,
                     "CROP": crop,
                     "TREATMENT": treatment,
+                    "MODE": mode,
+                    "TIME_ZONE": time_zone,
                     "FILE":timeStamp,
                     "P_WS_1": result[0][0],
                     "P_WS_2": result[0][1],
@@ -219,6 +225,8 @@ else:#different payloads for Soybean cams
                     "SD_free":disk_free,
                     "CROP": crop,
                     "TREATMENT": treatment,
+                    "MODE": mode,
+                    "TIME_ZONE": time_zone,
                     "FILE":"Test Image",
                     "P_WS_0": float(results[0]),
                     "P_WS_1": float(results[1]),
@@ -239,6 +247,8 @@ else:#different payloads for Soybean cams
                     "SD_free":disk_free,
                     "CROP": crop,
                     "TREATMENT": treatment,
+                    "MODE": mode,
+                    "TIME_ZONE": time_zone,
                     "FILE":timeStamp,
                     "P_WS_0": float(results[0]),
                     "P_WS_1": float(results[1]),
