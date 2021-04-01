@@ -99,9 +99,10 @@ while True: #start the loop
             os.system('/home/pi/wittypi/default_schedule.sh')
             #subprocess.call (["sudo","shutdown","+15"])#Shutdown in 10 minutes
             time.sleep(2)
-
-            subprocess.call("sudo", "timedatectl", "set-timezone", cmd_splitted[6])
-
+            cli_setup = "sudo" + " " + "timedatectl" + " " + "set-timezone" + " " + cmd_splitted[6]
+            print(cli_setup)
+            #subprocess.call("sudo", "timedatectl", "set-timezone", str(cmd_splitted[6]))
+            os.system(cli_setup)
             f = open('/home/pi/ML_Corn/config.json', 'w+')           #
             device_params['Hologram ID']  =  cmd_splitted[1]
             device_params['Camera ID'] = cmd_splitted[2]
