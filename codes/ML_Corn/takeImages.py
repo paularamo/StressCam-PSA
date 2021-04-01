@@ -40,6 +40,8 @@ mode = device_params['mode']
 time_zone = device_params['timezone']
 ###################################################
 
+tz_splitted = time_zone.split("/")
+
 from Hologram.HologramCloud import HologramCloud
 credentials = {'devicekey':devicekey} #'6r)^]p]Q'} #Hologram device key from hologram.io
 hologram = HologramCloud(credentials, network='cellular',authentication_type='csrpsk') #Connect to Hologram CLoud, change network to cellular to connect to LTE
@@ -179,7 +181,7 @@ if (crop =="corn"):
     if testML=="true":
         data = {
                     "DEV_ID": devicekey,
-                    "CAM_ID": cameraID,
+                    #"CAM_ID": cameraID,
                     "CPU_TEMP": cpu_temp,
                     "DATE":currDate,
                     "TIME":currTime,
@@ -187,18 +189,18 @@ if (crop =="corn"):
                     "CROP": crop,
                     "TREATMENT": treatment,
                     "MODE": mode,
-                    "TIME_ZONE": time_zone,
+                    "ZONE": tz_splitted[1],
                     "FILE":street[randomImage],
                     "P_WS_1": result[0][0],
                     "P_WS_2": result[0][1],
                     "P_WS_3": result[0][2],
-                    "Predicted_WS":waterStressLevel,
-                    "Actual_WS": actual_label,
+                    "P_WS":waterStressLevel,
+                    "A_WS": actual_label,
                 }
     else:
         data = {
                     "DEV_ID": devicekey,
-                    "CAM_ID": cameraID,
+                    #"CAM_ID": cameraID,
                     "CPU_TEMP": cpu_temp,
                     "DATE":currDate,
                     "TIME":currTime,
@@ -206,19 +208,19 @@ if (crop =="corn"):
                     "CROP": crop,
                     "TREATMENT": treatment,
                     "MODE": mode,
-                    "TIME_ZONE": time_zone,
+                    "ZONE": tz_splitted[1],
                     "FILE":timeStamp,
                     "P_WS_1": result[0][0],
                     "P_WS_2": result[0][1],
                     "P_WS_3": result[0][2],
-                    "Predicted_WS":waterStressLevel,
+                    "P_WS":waterStressLevel,
 
                 }
 else:#different payloads for Soybean cams
     if testML=="true":
         data = {
                     "DEV_ID": devicekey,
-                    "CAM_ID": cameraID,
+                    #"CAM_ID": cameraID,
                     "CPU_TEMP": cpu_temp,
                     "DATE":currDate,
                     "TIME":currTime,
@@ -226,7 +228,7 @@ else:#different payloads for Soybean cams
                     "CROP": crop,
                     "TREATMENT": treatment,
                     "MODE": mode,
-                    "TIME_ZONE": time_zone,
+                    "ZONE": tz_splitted[1],
                     "FILE":"Test Image",
                     "P_WS_0": float(results[0]),
                     "P_WS_1": float(results[1]),
@@ -234,13 +236,13 @@ else:#different payloads for Soybean cams
                     "P_WS_3": float(results[3]),
                     "P_WS_4": float(results[4]),
                     "P_WS_5": float(results[5]),
-                    "Predicted_WS":waterStressLevel,
-                    "Actual_WS": int(actual_label),
+                    "P_WS":waterStressLevel,
+                    "A_WS": int(actual_label),
                 }
     else:
         data = {
                     "DEV_ID": devicekey,
-                    "CAM_ID": cameraID,
+                    #"CAM_ID": cameraID,
                     "CPU_TEMP": cpu_temp,
                     "DATE":currDate,
                     "TIME":currTime,
@@ -248,7 +250,7 @@ else:#different payloads for Soybean cams
                     "CROP": crop,
                     "TREATMENT": treatment,
                     "MODE": mode,
-                    "TIME_ZONE": time_zone,
+                    "ZONE": tz_splitted[1],
                     "FILE":timeStamp,
                     "P_WS_0": float(results[0]),
                     "P_WS_1": float(results[1]),
@@ -256,7 +258,7 @@ else:#different payloads for Soybean cams
                     "P_WS_3": float(results[3]),
                     "P_WS_4": float(results[4]),
                     "P_WS_5": float(results[5]),
-                    "Predicted_WS":waterStressLevel,
+                    "P_WS":waterStressLevel,
                 }
 print(data)
 recv = hologram.sendMessage(data) # Send message to hologram cloud
