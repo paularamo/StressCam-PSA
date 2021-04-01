@@ -14,5 +14,5 @@ echo "Running run.sh "
 sudo python /home/pi/updateDate.py
 sudo /home/pi/System2RTC.sh
 sudo python3 /home/pi/updateConfig.py
-sudo python3 /home/pi/ML_Corn/takeImageSVM_corn.py
+sudo python3 /home/pi/ML_Corn/takeImages.py
 ps -aef | grep python
