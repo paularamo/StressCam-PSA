@@ -95,12 +95,13 @@ while True: #start the loop
             f.write(json.dumps(device_params))#, f)
             f.close()
         elif cmd_splitted[0] == 'setup' or cmd_splitted[0] == 'Setup':
+            cli_setup = "sudo" + " " + "timedatectl" + " " + "set-timezone" + " " + cmd_splitted[6]
+            print(cli_setup)
             print ('Default command received') #let the console show we know the SMS had the word start and we will process it
             os.system('/home/pi/wittypi/default_schedule.sh')
             #subprocess.call (["sudo","shutdown","+15"])#Shutdown in 10 minutes
             time.sleep(2)
-            cli_setup = "sudo" + " " + "timedatectl" + " " + "set-timezone" + " " + cmd_splitted[6]
-            print(cli_setup)
+
             #subprocess.call("sudo", "timedatectl", "set-timezone", str(cmd_splitted[6]))
             os.system(cli_setup)
             f = open('/home/pi/ML_Corn/config.json', 'w+')           #
