@@ -60,34 +60,40 @@ while True: #start the loop
             device_params['test ML'] = cmd_splitted[5]
             device_params['mode'] = cmd_splitted[0]
 
-            #jsonfile = open('/home/pi/ML_Corn/config.json', 'w')
             f.write(json.dumps(device_params))#, f)
             f.close()
-            #jsonfile.close()
-            #subprocess.call(['1'])
-            #GPIO.output(17, GPIO.HIGH) #Set normally on relay to off
-            #time.sleep(10) #Wait ten seconds sec, relay off
-            #GPIO.output(17, GPIO.LOW) #Set relay back to normally on
-            #subprocess.call (["hologram","send","--sms","--destination","+1xxxxxxxxxx","Completed!","--devicekey","{U>sZ#6s"])#Sends SMS text "Completed!"
-            #recv = hologram.sendMessage('received') # Send message to hologram cloud
-            #print('Recieved Code:',recv)
-            #print('0 Means Succesful Transmission')
-            #print('Command complete') #let the console know we are done
+
         elif cmd_splitted[0] == 'Stop' or cmd_splitted[0] == 'stop':
             print ('Stop command received') #let the console show we know the SMS had the word start and we will process it
             os.system('/home/pi/wittypi/stop_schedule.sh')
             subprocess.call (["sudo","shutdown","+15"])#Shutdown in 15 minutes
-            #time.sleep(2)
+            time.sleep(2)
+            f = open('/home/pi/ML_Corn/config.json', 'w+')           #
+            device_params['mode'] = cmd_splitted[0]
+            #jsonfile = open('/home/pi/ML_Corn/config.json', 'w')
+            f.write(json.dumps(device_params))#, f)
+            f.close()
         elif cmd_splitted[0] == 'Shutdown' or cmd_splitted[0] == 'shutdown':
             print ('Shutdown command received') #let the console show we know the SMS had the word start and we will process it
             os.system('/home/pi/wittypi/shutdown_schedule.sh')
+            time.sleep(2)
+            f = open('/home/pi/ML_Corn/config.json', 'w+')           #
+            device_params['mode'] = cmd_splitted[0]
+            #jsonfile = open('/home/pi/ML_Corn/config.json', 'w')
+            f.write(json.dumps(device_params))#, f)
+            f.close()
             subprocess.call (["sudo","shutdown","+15"])#Shutdown in 15 minutes
             #time.sleep(2)
         elif cmd_splitted[0] == 'Default' or cmd_splitted[0] == 'default':
             print ('Default command received') #let the console show we know the SMS had the word start and we will process it
             os.system('/home/pi/wittypi/default_schedule.sh')
             #subprocess.call (["sudo","shutdown","+15"])#Shutdown in 10 minutes
-            #time.sleep(2)
+            time.sleep(2)
+            f = open('/home/pi/ML_Corn/config.json', 'w+')           #
+            device_params['mode'] = cmd_splitted[0]
+            #jsonfile = open('/home/pi/ML_Corn/config.json', 'w')
+            f.write(json.dumps(device_params))#, f)
+            f.close()
         elif cmd_splitted[0] == 'setup' or cmd_splitted[0] == 'Setup':
             print ('Default command received') #let the console show we know the SMS had the word start and we will process it
             os.system('/home/pi/wittypi/default_schedule.sh')
