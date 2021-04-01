@@ -21,6 +21,8 @@ cameraID = device_params['Camera ID']             #
 crop = device_params['Crop']                 #
 treatment = device_params['Treatment']            #
 testML = device_params['test ML']    #
+mode = device_params['mode']
+time_zone = device_params['timezone']
 
 ###close????
 ###################################################
@@ -56,6 +58,8 @@ while True: #start the loop
             device_params['Crop'] = cmd_splitted[4]
             device_params['Treatment'] = cmd_splitted[3]
             device_params['test ML'] = cmd_splitted[5]
+            device_params['mode'] = cmd_splitted[0]
+
             #jsonfile = open('/home/pi/ML_Corn/config.json', 'w')
             f.write(json.dumps(device_params))#, f)
             f.close()
@@ -72,18 +76,37 @@ while True: #start the loop
         elif cmd_splitted[0] == 'Stop' or cmd_splitted[0] == 'stop':
             print ('Stop command received') #let the console show we know the SMS had the word start and we will process it
             os.system('/home/pi/wittypi/stop_schedule.sh')
-            subprocess.call (["sudo","shutdown","+15"])#Shutdown in 10 minutes
+            subprocess.call (["sudo","shutdown","+15"])#Shutdown in 15 minutes
             #time.sleep(2)
         elif cmd_splitted[0] == 'Shutdown' or cmd_splitted[0] == 'shutdown':
             print ('Shutdown command received') #let the console show we know the SMS had the word start and we will process it
             os.system('/home/pi/wittypi/shutdown_schedule.sh')
-            subprocess.call (["sudo","shutdown","+15"])#Shutdown in 10 minutes
+            subprocess.call (["sudo","shutdown","+15"])#Shutdown in 15 minutes
             #time.sleep(2)
-        elif cmd_splitted[0] == 'default' or cmd_splitted[0] == 'default':
+        elif cmd_splitted[0] == 'Default' or cmd_splitted[0] == 'default':
             print ('Default command received') #let the console show we know the SMS had the word start and we will process it
             os.system('/home/pi/wittypi/default_schedule.sh')
             #subprocess.call (["sudo","shutdown","+15"])#Shutdown in 10 minutes
             #time.sleep(2)
+        elif cmd_splitted[0] == 'setup' or cmd_splitted[0] == 'Setup':
+            print ('Default command received') #let the console show we know the SMS had the word start and we will process it
+            os.system('/home/pi/wittypi/default_schedule.sh')
+            #subprocess.call (["sudo","shutdown","+15"])#Shutdown in 10 minutes
+            time.sleep(2)
+
+            subprocess.call("sudo", "timedatectl", "set-timezone", cmd_splitted[6])
+
+            f = open('/home/pi/ML_Corn/config.json', 'w+')           #
+            device_params['Hologram ID']  =  cmd_splitted[1]
+            device_params['Camera ID'] = cmd_splitted[2]
+            device_params['Crop'] = cmd_splitted[4]
+            device_params['Treatment'] = cmd_splitted[3]
+            device_params['test ML'] = cmd_splitted[5]
+            device_params['mode'] = cmd_splitted[0]
+            device_params['timezone'] = cmd_splitted[6]
+            #jsonfile = open('/home/pi/ML_Corn/config.json', 'w')
+            f.write(json.dumps(device_params))#, f)
+            f.close()
     if recv is None: #Runs the following code when there is no message
         print ('No Command received, keep the previous configuration')#Prints timestamp, handy for troubleshooting
         break
