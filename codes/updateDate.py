@@ -36,9 +36,11 @@ date_time_obj = datetime.datetime.strptime(date_time_str, '%y/%m/%d %H:%M:%S.%f'
 if(date_time_obj.year ==2004):
         correct_year = False
         print("no network connection")
-        os.system('/home/pi/wittypi/syncronizedManual.sh')       
-     
+        os.system('sudo /home/pi/wittypi/syncronizedManual.sh')
+        
+else:
+    subprocess.call(['sudo', 'date', '-s', date_time_obj.isoformat(" ")])
 
 #print("testing rtc_system")
 #os.system('/home/pi/wittypi/syncronizedManual.sh')
-subprocess.call(['sudo', 'date', '-s', date_time_obj.isoformat(" ")])
+#subprocess.call(['sudo', 'date', '-s', date_time_obj.isoformat(" ")])
