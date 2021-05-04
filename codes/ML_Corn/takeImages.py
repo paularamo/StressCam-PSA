@@ -38,6 +38,8 @@ treatment = device_params['Treatment']            #
 testML = device_params['test ML']
 mode = device_params['mode']
 time_zone = device_params['timezone']
+farm=device_params['farm']
+rep=device_params['rep']
 ###################################################
 
 tz_splitted = time_zone.split("/")
@@ -191,9 +193,9 @@ if (crop =="corn"):
                     "MODE": mode,
                     "ZONE": tz_splitted[1],
                     "FILE":street[randomImage],
-                    "P_WS_1": result[0][0],
-                    "P_WS_2": result[0][1],
-                    "P_WS_3": result[0][2],
+                    "P_WS_1": round(result[0][0],5),
+                    "P_WS_2": round(result[0][1],5),
+                    "P_WS_3": round(result[0][2],5),
                     "P_WS":waterStressLevel,
                     "A_WS": actual_label,
                 }
@@ -210,9 +212,9 @@ if (crop =="corn"):
                     "MODE": mode,
                     "ZONE": tz_splitted[1],
                     "FILE":timeStamp,
-                    "P_WS_1": result[0][0],
-                    "P_WS_2": result[0][1],
-                    "P_WS_3": result[0][2],
+                    "P_WS_1": round(result[0][0],5),
+                    "P_WS_2": round(result[0][1],5),
+                    "P_WS_3": round(result[0][2],5),
                     "P_WS":waterStressLevel,
 
                 }

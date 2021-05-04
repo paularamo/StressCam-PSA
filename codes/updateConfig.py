@@ -23,6 +23,8 @@ treatment = device_params['Treatment']            #
 testML = device_params['test ML']    #
 mode = device_params['mode']
 time_zone = device_params['timezone']
+farm=device_params['farm']
+rep=device_params['rep']
 
 ###close????
 ###################################################
@@ -59,6 +61,8 @@ while True: #start the loop
             device_params['Treatment'] = cmd_splitted[3]
             device_params['test ML'] = cmd_splitted[5]
             device_params['mode'] = cmd_splitted[0]
+            device_params['farm'] = cmd_splitted[6]
+            device_params['rep'] = cmd_splitted[7]
 
             f.write(json.dumps(device_params))#, f)
             f.close()
@@ -112,6 +116,8 @@ while True: #start the loop
             device_params['test ML'] = cmd_splitted[5]
             device_params['mode'] = cmd_splitted[0]
             device_params['timezone'] = cmd_splitted[6]
+            device_params['farm'] = cmd_splitted[7]
+            device_params['rep'] = cmd_splitted[8]
             #jsonfile = open('/home/pi/ML_Corn/config.json', 'w')
             f.write(json.dumps(device_params))#, f)
             f.close()
