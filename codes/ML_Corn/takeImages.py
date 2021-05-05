@@ -50,7 +50,7 @@ credentials = {'devicekey':devicekey} #'6r)^]p]Q'} #Hologram device key from hol
 try:
     hologram = HologramCloud(credentials, network='cellular',authentication_type='csrpsk') #Connect to Hologram CLoud, change network to cellular to connect to LTE
 except:
-    print("Could not connect or open socket to Hologram Cloud"); 
+    print("Could not connect or open socket to Hologram Cloud");
 sum_RSSI = 0.0
 sum_quality = 0.0
 num_samples = 5
@@ -278,14 +278,16 @@ else:#different payloads for Soybean cams
                     "VER": version,
                 }
 #print(data)
-try: 
-    recv = hologram.sendMessage(data) # Send message to hologram cloud
-    print("Recieved Code:",recv)
-    print("0 Means Succesful Transmission")
-except: 
-    print("Could not connect or open socket to Hologram Cloud")
 with open('data.txt', 'a') as outfile:
             json.dump(data, outfile)
             outfile.write('\n')
+
+try:
+    recv = hologram.sendMessage(data) # Send message to hologram cloud
+    print("Recieved Code:",recv)
+    print("0 Means Succesful Transmission")
+except:
+    print("Not network")
+
 
 sleep(20)
