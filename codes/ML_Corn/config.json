@@ -1,1 +1,1 @@
-{"Hologram ID": "MiQ==Idm", "Camera ID": "16039", "Treatment": "bare", "Crop": "corn", "test ML": "true", "mode": "setup", "timezone": "America/New_York", "farm": "ABC", "rep": "1"}
+{"Hologram ID": "MiQ==Idm", "Camera ID": "16039", "Treatment": "bare", "Crop": "corn", "test ML": "true", "mode": "none", "timezone": "America/New_York", "farm": "DEV", "rep": "1", "ver": "5.5.21"}
