@@ -33,7 +33,7 @@ date_time_str = split_date[1]
 date_time_str = date_time_str.replace(",", " ")
 date_time_str = date_time_str.replace("-", ".")
 date_time_obj = datetime.datetime.strptime(date_time_str, '%y/%m/%d %H:%M:%S.%f')
-if(date_time_obj.year ==2004):
+if(date_time_obj.year < 2021):
         correct_year = False
         print("no network connection")
         os.system('sudo /home/pi/wittypi/syncronizedManual.sh')
