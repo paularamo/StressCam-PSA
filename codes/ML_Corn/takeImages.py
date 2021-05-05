@@ -47,8 +47,10 @@ tz_splitted = time_zone.split("/")
 
 from Hologram.HologramCloud import HologramCloud
 credentials = {'devicekey':devicekey} #'6r)^]p]Q'} #Hologram device key from hologram.io
-hologram = HologramCloud(credentials, network='cellular',authentication_type='csrpsk') #Connect to Hologram CLoud, change network to cellular to connect to LTE
-
+try:
+    hologram = HologramCloud(credentials, network='cellular',authentication_type='csrpsk') #Connect to Hologram CLoud, change network to cellular to connect to LTE
+except:
+    print("Could not connect or open socket to Hologram Cloud"); 
 sum_RSSI = 0.0
 sum_quality = 0.0
 num_samples = 5
@@ -276,10 +278,12 @@ else:#different payloads for Soybean cams
                     "VER": version,
                 }
 #print(data)
-recv = hologram.sendMessage(data) # Send message to hologram cloud
-print("Recieved Code:",recv)
-print("0 Means Succesful Transmission")
-
+try: 
+    recv = hologram.sendMessage(data) # Send message to hologram cloud
+    print("Recieved Code:",recv)
+    print("0 Means Succesful Transmission")
+except: 
+    print("Could not connect or open socket to Hologram Cloud")
 with open('data.txt', 'a') as outfile:
             json.dump(data, outfile)
             outfile.write('\n')
