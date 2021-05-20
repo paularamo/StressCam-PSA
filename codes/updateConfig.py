@@ -121,22 +121,19 @@ while True: #start the loop
             #jsonfile = open('/home/pi/ML_Corn/config.json', 'w')
             f.write(json.dumps(device_params))#, f)
             f.close()
-    if recv is None: #Runs the following code when there is no message #mode
-        if mode == 'Start' or mode == 'start': #Checks for the first word
-            print ('Start command received') #let the console show we know the SMS had the word start and we will process it
-            os.system('/home/pi/wittypi/start_schedule.sh')
+    if recv is None: #Sync schedule everytime 
+        if mode == 'Start' or mode == 'start': 
+            print ('Setting start schedule') 
+            os.system('/home/pi/wittypi/start_schedule.sh > /dev/null')
             time.sleep(2)
         elif mode == 'setup' or mode == 'Setup':
-            cli_setup = "sudo" + " " + "timedatectl" + " " + "set-timezone" + " " + cmd_splitted[6]
-            print(cli_setup)
-            print ('Default command received') #let the console show we know the SMS had the word start and we will process it
-            os.system('/home/pi/wittypi/default_schedule.sh')
-            #subprocess.call (["sudo","shutdown","+15"])#Shutdown in 10 minutes
+            
+            print ('Setting setup schedule') 
+            os.system('/home/pi/wittypi/default_schedule.sh > /dev/null')
             time.sleep(2)
         elif mode == 'Default' or mode == 'default':
-            print ('Default command received') #let the console show we know the SMS had the word start and we will process it
-            os.system('/home/pi/wittypi/default_schedule.sh')
-            #subprocess.call (["sudo","shutdown","+15"])#Shutdown in 10 minutes
+            print ('Setting default schedule') 
+            os.system('/home/pi/wittypi/default_schedule.sh > /dev/null')
             time.sleep(2)
         elif mode == 'none' or mode == 'None':
             print('No Command received, keep the previous configuration')#Prints timestamp, handy for troubleshooting
