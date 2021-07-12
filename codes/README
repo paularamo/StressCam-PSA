@@ -1,1 +1,35 @@
+===============================================================================
+System2RTC
+===============================================================================
+This code is used to syncronize the time for all the components used. The time is taken from the hologram device and then this time stamp is syncronized 
+by the witty pi device and eventually runs on the scheduled syncronized time scale.
+Also  this code provides useful utility functions such as
+•	Setting start up ,shutdown times.
+•	Clearing start up, shutdown times.
+•	I2c read
+•	I2c write
+•	Getting temperature data. etc
 
+===============================================================================
+Run.sh
+===============================================================================
+This program runs the complete set up and one of the most important command of the stress cam. It does various functions like:
+Reading the date-time-zonetime with cellular modem.
+Sycn RTC with RPi date.
+Hear any SMS pending for configuration.
+Takes pictures on the RPi and run ML for soybean or corn.
+Send a payload with camera performance and water stress level.
+
+===============================================================================
+Updateconfig
+===============================================================================
+This programs function is to convert the defualt time schedule which we install in the cameras to the required start time schedule when we run the start message using the 
+config.json file which contains many parameters like device id,hologram id etc. It updates the RTC and witty pi log and syncronizes the camera to function with the 
+given start schedule.
+
+===============================================================================
+updatedate
+===============================================================================
+This command updates the date in the Hologram as well as the RTC ,witty pi log. Sometimes when we unplug the hologram before it recives a signal connectivity the hologram sets its 
+default date eventually syncronizing with the witty pi and we end up loosing the time stamp. But this program makes sure that the date is set up back to tthe correct stamp,
+the if statement makes sure that we are  in the correct year.
