@@ -24,3 +24,5 @@ will be made soon as well.
 ===============================================================================
 Takeimages
 ===============================================================================
+This script checks if the machine learning procedure is required. If the ML test is true then it test from the in stored test images. If the ML test is false it takes the 
+pictures taken by the camera as data to evaluate.
