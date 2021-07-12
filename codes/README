@@ -25,7 +25,16 @@ Updateconfig
 ===============================================================================
 This programs function is to convert the defualt time schedule which we install in the cameras to the required start time schedule when we run the start message using the 
 config.json file which contains many parameters like device id,hologram id etc. It updates the RTC and witty pi log and syncronizes the camera to function with the 
-given start schedule.
+given start schedule. Whenever a start or default message is sent the following parameters get updated:
+            device_params['Hologram ID']  =  cmd_splitted[1]
+            device_params['Camera ID'] = cmd_splitted[2]
+            device_params['Crop'] = cmd_splitted[4]
+            device_params['Treatment'] = cmd_splitted[3]
+            device_params['test ML'] = cmd_splitted[5]
+            device_params['mode'] = cmd_splitted[0]
+            device_params['timezone'] = cmd_splitted[6]
+            device_params['farm'] = cmd_splitted[7]
+            device_params['rep'] = cmd_splitted[8]
 
 ===============================================================================
 updatedate
