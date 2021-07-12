@@ -1,6 +1,26 @@
 ===============================================================================
 Config.json file !
 ===============================================================================
-{"Hologram ID": "G6gJIsj0", "Camera ID": "16004", "Treatment": "cover", "Crop": "corn", "test ML": "false", "mode": "start", "timezone": "America/New_York", "farm": "DEV", "rep": "1", "ver": "5.18.21"}
+This file contains :
+Hologram Id: This ID is a device key generated through the hologram website and each hologram device has its own ID. The config.jason file has to match with the 
+             hologram ID for syncronization and network connectivity.
+Camera Id: Each camera has its seperate ID.   
+Treatment: These cameras are designed to run on two treatment types BARE or COVER
+Crop: These cameras are designed to run on two crops CORN or SOYBEAN as we have designed the machinhe learning models on these two crops only till now.
+Test Ml : If it is false it uses the pictures which the camera has taken during its run time
+          If its given true the camera uses the test images which are stiored in the camera for evaluation.
+Mode: The cameras can run on four modes namely start,stop,defualt or setup command.
+Time zone: set time zone.
+Farm : This is the farm code.
+Rep: it is the repitition and it can be either 1 or 2.
+ver: version of the camera which is 5.18.21(firmware version its is the image date and used to track issues).
 
-this file contains 
+===============================================================================
+Soybean ML model
+===============================================================================
+The three files of soybean is the machine learning model made on tensor flow. It has the test labels and test images for the evaluation. The cotton machine learning model 
+will be made soon as well. 
+
+===============================================================================
+Takeimages
+===============================================================================
