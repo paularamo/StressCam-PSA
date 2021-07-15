@@ -3,21 +3,29 @@
 # StressCam 
 
 The StressCam is a project with this specific goal: To find a On-Farm solution to detect Water stress in real-time and relate to other measurements on the field. Keywords: open source, computer vision, machine learning, edge computing.
-![intro](Field_Images/stress_cam_pic_01.png)
 
-The StressCam is a low cost camera that can be installed in the field in a several ways. The camera consists of a raspberry pi, a PiCamera, a power management system and real time clock, a regulator with battery and solar panel. The idea of this project is to obtain a low cost camera (~U$100) that can be installed in the field and with which we can manage the crop, specifically in the management of water stress.
+![](https://lh6.googleusercontent.com/7CYahv4pL-UyMMPPmljDtzjVqGhKxL244pjyrUobLfCUVoLKhSitLrKBxk6yv_Pf3WdrxyGQ9OclLobWjuPSFBjaQHQDmfh0GnVLu4YFEjaFftxPOg1SHJ6OlW8DR2ySmQujDIdS)
+Figure 1. StressCam Gen3
+
+The StressCam is a low cost camera that can be installed in the field in a several ways. The camera consists of a raspberry pi, a PiCamera, a power management system and real time clock, and a solar power system. The idea of this project is to obtain a low cost camera (~U$200) that can be installed in the field and with which we can manage the crop, specifically in the management of water stress.
 
 ## Hardware
 
+XXXXXXXXXXXXX AKHIL XXXXXX Hardware description
+
+![](https://lh5.googleusercontent.com/N2H0_MO4PmXhJ8P6JGCTe2nUMajob00ZQ6D4R9IX0nlp051khI73B4iDbEphEmGPOLRfs5xxlFEaVW1YWIUXHLcEAsT46O_HFPPFVrF1zo8oNumjRA4aHHfqpbMwh6JQS9AN2tiv)
 
 ## Operations Modes
+
+XXXXXXXXXXXXX AKHIL XXXXXX General description of operation modes
 
 ![](https://lh3.googleusercontent.com/c-DIDslRGLf1w9noavTf1WWEy3sW4QI2ZKYUXA04UJIrBAuuwiwpIS7r3sFw22wi47Kri7KsWrWSWBxAARF2zQd0NYrtwhlgdgsMgUVVC-TmhLfmja1WC1ny3HAPeFdmp2Qozy37)
 
 ## Pipeline
 
+XXXXXXXXXXXXX AKHIL XXXXXX General description of the pipeline
 
-===============================================================================
+
 System2RTC
 ===============================================================================
 This code is used to syncronize the time for all the components used. The time is taken from the hologram device and then this time stamp is syncronized 
@@ -29,7 +37,7 @@ Also  this code provides useful utility functions such as
 •	I2c write
 •	Getting temperature data. etc
 
-===============================================================================
+
 Run.sh
 ===============================================================================
 This program runs the complete set up and one of the most important command of the stress cam. It does various functions like:
@@ -39,7 +47,7 @@ Hear any SMS pending for configuration.
 Takes pictures on the RPi and run ML for soybean or corn.
 Send a payload with camera performance and water stress level.
 
-===============================================================================
+
 Updateconfig
 ===============================================================================
 This programs function is to convert the defualt time schedule which we install in the cameras to the required start time schedule when we run the start message using the 
@@ -55,7 +63,6 @@ given start schedule. Whenever a start or default message is sent the following 
             device_params['farm'] = cmd_splitted[7]
             device_params['rep'] = cmd_splitted[8]
 
-===============================================================================
 updatedate
 ===============================================================================
 This command updates the date in the Hologram as well as the RTC ,witty pi log. Sometimes when we unplug the hologram before it recives a signal connectivity the hologram sets its 
