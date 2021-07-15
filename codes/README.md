@@ -23,6 +23,7 @@ XXXXXXXXXXXXX AKHIL XXXXXX General description of operation modes
 
 ## Pipeline
 
+Show here the main description about what the camera is doing once it is starting up.
 XXXXXXXXXXXXX AKHIL XXXXXX General description of the pipeline
 
 
