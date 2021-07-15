@@ -10,6 +10,8 @@ The StressCam is a low cost camera that can be installed in the field in a sever
 ## Hardware
 
 XXXXXXXXXXXXX AKHIL XXXXXX Hardware description
+1)WITTY PI
+  Witty Pi is small extension board that can adds realtime clock and power management to the Raspberry Pi. It is the component which is responsible for time syncronization and    scheduling.
 
 ![](https://lh5.googleusercontent.com/N2H0_MO4PmXhJ8P6JGCTe2nUMajob00ZQ6D4R9IX0nlp051khI73B4iDbEphEmGPOLRfs5xxlFEaVW1YWIUXHLcEAsT46O_HFPPFVrF1zo8oNumjRA4aHHfqpbMwh6JQS9AN2tiv)
 
