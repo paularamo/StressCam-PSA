@@ -1,7 +1,5 @@
 # StressCam
 
-# StressCam 
-
 The StressCam is a project with this specific goal: To find a On-Farm solution to detect Water stress in real-time and relate to other measurements on the field. Keywords: open source, computer vision, machine learning, edge computing.
 
 ![](https://lh6.googleusercontent.com/7CYahv4pL-UyMMPPmljDtzjVqGhKxL244pjyrUobLfCUVoLKhSitLrKBxk6yv_Pf3WdrxyGQ9OclLobWjuPSFBjaQHQDmfh0GnVLu4YFEjaFftxPOg1SHJ6OlW8DR2ySmQujDIdS)
