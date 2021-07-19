@@ -9,8 +9,6 @@ The StressCam is a low cost camera that can be installed in the field in a sever
 
 ## Hardware
 
-XXXXXXXXXXXXX AKHIL XXXXXX Hardware description
-
 1) WITTY PI:  Witty Pi is small extension board that can adds realtime clock and power management to the Raspberry Pi. It is the component which is responsible for time syncronization and scheduling.
 
 2) RASPBERRY PI: Used to store all the codes(Memory card connected to it) and connect all the other components. The memory card is 64 gb in size and stores the images taken by   the camera.
@@ -25,7 +23,6 @@ XXXXXXXXXXXXX AKHIL XXXXXX Hardware description
 
 ## Operations Modes
 
-XXXXXXXXXXXXX AKHIL XXXXXX General description of operation modes
 
 The camera has 4 operation modes start,setup,stop and shutdown. Each and every mode has its on schedule and used for different purposes. 
 
@@ -33,8 +30,7 @@ The camera has 4 operation modes start,setup,stop and shutdown. Each and every m
 
 ## Pipeline
 
-XXXXXXXXXXXXX AKHIL XXXXXX General description of the pipeline
-
+![](https://lh3.googleusercontent.com/b5hlE8xHkKajSTSq4g4WPA84ygnbzOzctohfm3PUh2qm0xQAjJo6WUveYl5MHKSEZah0k5DRyRMbZHeI4WAgOHDI22jIfp7lo2X2eUHdqSbQI3obxjPdOxi9vg0Nt8xnJzMpcRq7)
 
 System2RTC
 ===============================================================================
