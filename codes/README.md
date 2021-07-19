@@ -27,7 +27,7 @@ XXXXXXXXXXXXX AKHIL XXXXXX Hardware description
 
 XXXXXXXXXXXXX AKHIL XXXXXX General description of operation modes
 
-The camera has 4 operation modes start,setup,stop and shutdown. Each and every mode has its on schedule and used for differnt purposes. 
+The camera has 4 operation modes start,setup,stop and shutdown. Each and every mode has its on schedule and used for different purposes. 
 
 ![](https://lh3.googleusercontent.com/c-DIDslRGLf1w9noavTf1WWEy3sW4QI2ZKYUXA04UJIrBAuuwiwpIS7r3sFw22wi47Kri7KsWrWSWBxAARF2zQd0NYrtwhlgdgsMgUVVC-TmhLfmja1WC1ny3HAPeFdmp2Qozy37)
 
