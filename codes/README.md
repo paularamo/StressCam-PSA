@@ -11,7 +11,15 @@ The StressCam is a low cost camera that can be installed in the field in a sever
 
 XXXXXXXXXXXXX AKHIL XXXXXX Hardware description
 
-1)WITTY PI:  Witty Pi is small extension board that can adds realtime clock and power management to the Raspberry Pi. It is the component which is responsible for time syncronization and scheduling.
+1) WITTY PI:  Witty Pi is small extension board that can adds realtime clock and power management to the Raspberry Pi. It is the component which is responsible for time syncronization and scheduling.
+
+2) RASPBERRY PI: Used to store all the codes(Memory card connected to it) and connect all the other components. The memory card is 64 gb in size and stores the images taken by   the camera.
+
+3) HOLOGRAM DEVICE: The component is uded to connect to internet. It has a sim card which scans and connects to the desired network. This device is used to send and receive messages.
+
+4) POWER BANK: Used to provide power to the raspberry pi board and witty pi board.
+
+5) SOLAR PANEL: Used to charge the power bank.It is oriented exactly in the direction of sun to receive maximum solar input. 
 
 ![](https://lh5.googleusercontent.com/N2H0_MO4PmXhJ8P6JGCTe2nUMajob00ZQ6D4R9IX0nlp051khI73B4iDbEphEmGPOLRfs5xxlFEaVW1YWIUXHLcEAsT46O_HFPPFVrF1zo8oNumjRA4aHHfqpbMwh6JQS9AN2tiv)
 
@@ -19,11 +27,12 @@ XXXXXXXXXXXXX AKHIL XXXXXX Hardware description
 
 XXXXXXXXXXXXX AKHIL XXXXXX General description of operation modes
 
+The camera has 4 operation modes start,setup,stop and shutdown. Each and every mode has its on schedule and used for differnt purposes. 
+
 ![](https://lh3.googleusercontent.com/c-DIDslRGLf1w9noavTf1WWEy3sW4QI2ZKYUXA04UJIrBAuuwiwpIS7r3sFw22wi47Kri7KsWrWSWBxAARF2zQd0NYrtwhlgdgsMgUVVC-TmhLfmja1WC1ny3HAPeFdmp2Qozy37)
 
 ## Pipeline
 
-Show here the main description about what the camera is doing once it is starting up.
 XXXXXXXXXXXXX AKHIL XXXXXX General description of the pipeline
 
 
@@ -43,9 +52,13 @@ Run.sh
 ===============================================================================
 This program runs the complete set up and one of the most important command of the stress cam. It does various functions like:
 Reading the date-time-zonetime with cellular modem.
+
 Sycn RTC with RPi date.
+
 Hear any SMS pending for configuration.
+
 Takes pictures on the RPi and run ML for soybean or corn.
+
 Send a payload with camera performance and water stress level.
 
 
@@ -67,6 +80,5 @@ given start schedule. Whenever a start or default message is sent the following 
 
 updatedate
 ===============================================================================
-This command updates the date in the Hologram as well as the RTC ,witty pi log. Sometimes when we unplug the hologram before it recives a signal connectivity the hologram sets its 
-default date eventually syncronizing with the witty pi and we end up loosing the time stamp. But this program makes sure that the date is set up back to tthe correct stamp,
+This command updates the date in the Hologram as well as the RTC ,witty pi log. Sometimes when we unplug the hologram before it recives a signal connectivity the hologram sets its default date eventually syncronizing with the witty pi and we end up loosing the time stamp. But this program makes sure that the date is set up back to tthe correct stamp,
 the if statement makes sure that we are  in the correct year.
